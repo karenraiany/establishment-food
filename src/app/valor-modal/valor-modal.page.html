@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="end">
+      <ion-button (click)="onDidDismiss()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="title">
+      Novo Valor
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <ion-card>
+    <ion-card-header>
+      {{item.title}}
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Valor R$</ion-label>
+        <ion-input type="number" inputmode="numeric" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Data</ion-label>
+        <ion-datetime
+          display-format="DD/MM/YYYY"
+          picker-format="DD MM YYYY"
+        ></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>Local</ion-label>
+        <ion-select value="pao" okText="Ok" cancelText="Cancelar">
+          <ion-select-option value="pao">Pão de Açúcar</ion-select-option>
+          <ion-select-option value="blonde">São Luiz</ion-select-option>
+          <ion-select-option value="black">Cometa</ion-select-option>
+          <ion-select-option value="red">Extra</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-button class="salvar">Salvar</ion-button>
+  </ion-toolbar>
+</ion-footer>

@@ -1,9 +1,45 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
-      Tab Two
+      <ion-img class="logo-tab" src="/assets/image/logo.png"></ion-img>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+
+  <ion-searchbar
+    [(ngModel)]="searchTerm"
+    (ionChange)="onSearchInput()"
+    placeholder="Pesquisar"
+    animated
+  ></ion-searchbar>
+
+  <div *ngIf="searching" class="spinner-container">
+    <ion-spinner></ion-spinner>
+  </div>
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of itens">
+      <ion-item (click)="presentModal(item)">
+        {{item.title}}
+      </ion-item>
+
+      <ion-item-options>
+        <button ion-button icon-only (click)="editNote(item)" light>
+          <ion-icon name="paper"></ion-icon>
+        </button>
+        <button ion-button icon-only (click)="deleteNote(item)" danger>
+          <ion-icon name="trash"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+</ion-content>
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="presentAlert()">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

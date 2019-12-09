@@ -1,5 +1,7 @@
 {
   "name": "divinofogao",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
